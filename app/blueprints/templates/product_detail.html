@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block title %} Products {% endblock %}
+
+{% block content %} 
+
+        <h1 class="text-2xl font-bold mb-4">Product Details</h1>
+        
+        <div class="bg-white p-4 rounded shadow-md">
+            <p><strong>ID:</strong> {{ product.id }}</p>
+            <p><strong>Name:</strong> {{ product.name }}</p>
+            <p><strong>Quantity Available:</strong> {{ product.quantity_available }}</p>
+            <p><strong>Price:</strong> ${{ product.price }}</p>
+        </div>
+        
+        <a href="/" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded">Back to Products List</a>
+{% endblock %} 

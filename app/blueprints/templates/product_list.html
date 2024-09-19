@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% block title %} Products {% endblock %}
+
+{% block content %} 
+
+<h1 class="text-xl font-semibold mt-6 mb-4">Analysis</h2>
+<div class="bg-white p-4 rounded shadow-md">
+    <p><strong>Product with highest quantity:</strong> {{ product_max_quantity.name }} (Quantity: {{ product_max_quantity.quantity_available }}, Price: {{ product_max_quantity.price }})</p>
+    <p><strong>Product with lowest quantity:</strong> {{ product_min_quantity.name }} (Quantity: {{ product_min_quantity.quantity_available }}, Price: {{ product_min_quantity.price }})</p>
+    <p><strong>Product with highest price among those with highest quantity:</strong> {{ product_max_price.name }} (Quantity: {{ product_max_price.quantity_available }}, Price: {{ product_max_price.price }})</p>
+    <p><strong>Product closest to average price:</strong> {{ product_closest_to_avg.name }} (Quantity: {{ product_closest_to_avg.quantity_available }}, Price: {{ product_closest_to_avg.price }})</p>
+</div>
+
+<br/>
+
+<table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+    <thead>
+        <tr class="w-full bg-gray-200 border-b border-gray-300">
+            <th class="p-4 text-left text-gray-600">ID</th>
+            <th class="p-4 text-left text-gray-600">Name</th>
+            <th class="p-4 text-left text-gray-600">Quantity Available</th>
+            <th class="p-4 text-left text-gray-600">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr class="border-b border-gray-200">
+            <td class="p-4">{{ product.id }}</td>
+            <td class="p-4">{{ product.name }}</td>
+            <td class="p-4">{{ product.qty_available }}</td>
+            <td class="p-4">{{ product.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
